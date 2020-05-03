@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-value',
@@ -20,6 +21,8 @@ export class ValueComponent implements OnInit {
       this.values = resp;
     }, error => {
       console.log(error);
+    }, () => {
+      console.log('The subscription is complete');
     }
     );
   }
